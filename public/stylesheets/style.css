@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +10,31 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+.nav{
+  margin-bottom: 40px;
+  display: flex;
+  list-style: none;
+}
+
+.nav-item{
+  flex-grow: 1;
+}
+
+.nav-item_link{
+  font-weight: bold;
+  text-decoration: none;
+  display:block;
+  padding: 10px 0;
+  color: whitesmoke;
+  text-align: center;
+  justify-content: space-around;
+  background-color: black;
+  border-radius: 20px;
+}
+.nav-item_link:hover{
+  background-color: whitesmoke;
+  color: black;
+  border: 1px solid black;
 }
