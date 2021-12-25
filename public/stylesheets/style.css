@@ -16,8 +16,9 @@ a {
   margin-bottom: 40px;
   display: flex;
   list-style: none;
+  background-color: black;
+  
 }
-
 .nav-item{
   flex-grow: 1;
 }
@@ -30,8 +31,7 @@ a {
   color: whitesmoke;
   text-align: center;
   justify-content: space-around;
-  background-color: black;
-  border-radius: 20px;
+  
 }
 .nav-item_link:hover{
   background-color: whitesmoke;
