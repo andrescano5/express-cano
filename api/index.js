@@ -11,9 +11,25 @@ const books = await db.libro.findAll({
     return result;
 });
 
-return books;
+    return books
+}
+
+const getBookById = async (id) => {
+    console.log('**/*/*/**/*/****/');
+    console.log('El ID que llegó a /api es ' + id);
+    console.log('**/*/*/**/*/****/');
+    //SELECT * FROM libro WHERE id_libro = 3
+    //findByPk = Find by Primary key
+    const book = await db.libro.findByPk(id, {
+        include: db.autor 
+    }).then(result => {
+        return result;
+    });
+
+    return book;
 }
 
 module.exports = {
-    getBooks
+    getBooks,
+    getBookById
 }
