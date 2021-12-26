@@ -20,16 +20,16 @@ router.get("/contacto", (req, res) => {
 });
 
 //localhost:3000/libros
-router.get('/libros', async (req,res) =>{
+router.get("/libros", async (req,res) =>{
   //llamar a la función getBooks
   const books = await api.getBooks();
   //Devolcer el JSON con los libros recibidos
-  res.send(books);
+  res.render("pages/libros", { books });
 });
 
-router.get('/libro/:id', async (req,res) => {
+router.get("/libro/:id", async (req,res) => {
   const book = await api.getBookById(req.params.id);
-  res.send(book);
+  res.render("pages/libro", { book });
 });
 
 module.exports = router;
