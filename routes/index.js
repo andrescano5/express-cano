@@ -1,4 +1,5 @@
 var express = require("express");
+const res = require("express/lib/response");
 var router = express.Router();
 
 //Traigo todas las funciones de la API
@@ -19,6 +20,15 @@ router.get("/resultados",async (req, res) => {
   const results = await api.searchByTitle(titulo);
 
   res.send(results);
+});
+
+router.get("/agregar", async (req, res ) => {
+  const authors = await api.getAutor();
+
+
+  console.log(authors);
+
+  res.render("pages/agregar");
 });
 
 //GET nosotros page

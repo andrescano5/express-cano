@@ -49,8 +49,19 @@ const searchByTitle = async (titulo) => {
     return results;
 }
 
+const getAutor = async () => {
+    //SELECT * FROM autor
+    const authors = await db.autor.findAll().then(result => {
+        return result;
+    });
+
+    return authors;
+
+}
+
 module.exports = {
     getBooks,
     getBookById,
-    searchByTitle
+    searchByTitle,
+    getAutor
 }
