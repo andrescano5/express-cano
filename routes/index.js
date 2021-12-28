@@ -9,6 +9,18 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
+// GET resultados page
+router.get("/resultados",async (req, res) => {
+  // conseguir lo que el usuario tipee en el campo del titulo
+  //console.log(req.query)
+  const { titulo } = req.query;
+
+  //Enviar titulo a la llamada de la API
+  const results = await api.searchByTitle(titulo);
+
+  res.send(results);
+});
+
 //GET nosotros page
 router.get("/nosotros", (req, res) => {
   res.render("pages/nosotros", { title: "Nosotros" });
