@@ -1,4 +1,4 @@
-const { Op } = require("sequelize");
+const { Op, DataTypes } = require("sequelize");
 
 //Traer la DB
 const db = require('../models');
@@ -56,12 +56,18 @@ const getAutor = async () => {
     });
 
     return authors;
+}
 
+const addBook = async (titulo, precio, portada, autorId) => {
+    //Acá vamos a agregar un libro
+    console.log('Llegó: ', titulo, precio, portada, autorId);
+  
 }
 
 module.exports = {
     getBooks,
     getBookById,
     searchByTitle,
-    getAutor
+    getAutor,
+    addBook
 }

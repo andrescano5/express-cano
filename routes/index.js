@@ -1,5 +1,6 @@
 var express = require("express");
 const res = require("express/lib/response");
+const { cls } = require("sequelize");
 var router = express.Router();
 
 //Traigo todas las funciones de la API
@@ -22,14 +23,23 @@ router.get("/resultados",async (req, res) => {
   res.send(results);
 });
 
+/*GET agregar page*/
 router.get("/agregar", async (req, res ) => {
   const authors = await api.getAutor();
-
-
   console.log(authors);
-
-  res.render("pages/agregar");
+//Le envío los autores al EJS
+  res.render("pages/agregar", {authors});
 });
+
+/* POST agregar libro, proceso */
+router.post("/agregar-libro", (req, res)=> {
+  //Levantar los datos del formulario de agregar
+  console.log(req.body);
+  const { titulo, precio, portada, autor } = req.body;
+  api.addBook(titulo, precio, portada, autor);
+  res.send('vas bien');
+});
+
 
 //GET nosotros page
 router.get("/nosotros", (req, res) => {
