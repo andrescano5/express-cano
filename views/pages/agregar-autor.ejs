@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Agregar Libro</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+
+    <h1>Agregar Autor</h1>
+
+    <form action="/agregar-autor" method="POST">
+        <label>
+            Nombre Completo del Autor:
+            <input type="text" name="nombreCompleto">
+        </label>
+
+        <input type="submit" value="Agregar Autor">
+    </form>
+  
+  </body>
+</html>

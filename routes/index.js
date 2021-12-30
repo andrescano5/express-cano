@@ -40,7 +40,20 @@ router.post("/agregar-libro", async (req, res)=> {
   res.send('vas bien');
 });
 
+router.get('/agregar-autor', (req, res) => {
+  res.render('pages/agregar-autor');
+});
 
+router.post('/agregar-autor', async (req,res) => {
+  //Mostrar en consola lo que tipeó el usuario
+  // El usuario tipeó req.body.nombreCompleto
+ 
+  console.log('El usuario tipeó: ', req.body.nombreCompleto);
+  await api.addAuthor(req.body.nombreCompleto);
+//Conexión a la DB, enviando el nombreCompletp y agregando el registro
+
+  res.send('Estás en la versión post');
+});
 //GET nosotros page
 router.get("/nosotros", (req, res) => {
   res.render("pages/nosotros", { title: "Nosotros" });
